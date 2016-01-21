@@ -7,14 +7,16 @@
 ######################################################################
 CXX = g++
 
-Your INCLUDE path (e.g., -I/usr/include)
-YOUR_INCLUDE_PATH =
+# Your INCLUDE path (e.g., -I/usr/include)
+# include /usr/local/include to override jpeg library headers in /usr/include
+YOUR_INCLUDE_PATH = -I../../../CLAPACK-3.2.1/INCLUDE -I/usr/local/include
 
-Your metis directory (contains header files under graclus1.2/metisLib/)
-YOUR_INCLUDE_METIS_PATH =
+# Your metis directory (contains header files under graclus1.2/metisLib/)
+YOUR_INCLUDE_METIS_PATH = -I../../../graclus1.2/metisLib
 
-Your LDLIBRARY path (e.g., -L/usr/lib)
-YOUR_LDLIB_PATH =
+# Your LDLIBRARY path (e.g., -L/usr/lib)
+# include /usr/local/lib to override jpeg library in /usr/lib
+YOUR_LDLIB_PATH = -L../../../graclus1.2 -L/usr/local/lib
 
 ######################################################################
 CXXFLAGS_PMVS = -O2 -Wall -Wno-deprecated ${YOUR_INCLUDE_PATH}

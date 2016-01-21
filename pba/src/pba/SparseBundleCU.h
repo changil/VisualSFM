@@ -21,6 +21,7 @@
 #if !defined(SPARSE_BUNDLE_CU_H)
 #define SPARSE_BUNDLE_CU_H
 
+#include <cstdlib>
 #include "CuTexImage.h"
 #include "ConfigBA.h"
 #include "DataInterface.h"

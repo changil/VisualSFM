@@ -192,7 +192,7 @@ endif
 makepath:
 	mkdir -p $(ODIR_SIFTGPU)
 	mkdir -p $(BIN_DIR) 
-	sed -i -e 's/\\/\//g' demos/*.bat
+	#sed -i -e 's/\\/\//g' demos/*.bat
  
 clean:
 	rm -f $(ODIR_SIFTGPU)/*.o

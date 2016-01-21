@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iterator>
+#include <numeric>
 
 #ifdef _OPENMP
 #include <omp.h>

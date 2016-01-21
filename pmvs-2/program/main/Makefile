@@ -9,10 +9,10 @@ CXX = g++
 
 
 # Your INCLUDE path (e.g., -I/usr/include)
-YOURINCLUDEPATH =
+YOURINCLUDEPATH = -I../../../CLAPACK-3.2.1/INCLUDE -I/usr/local/include
 
 # Your LDLIBRARY path (e.g., -L/usr/lib)
-YOURLDLIBPATH =
+YOURLDLIBPATH = -L/usr/local/lib
 
 CXXFLAGS = -O2 -Wall -Wno-deprecated ${YOURINCLUDEPATH}
 
