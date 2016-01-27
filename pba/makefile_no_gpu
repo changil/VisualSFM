@@ -15,6 +15,7 @@ SRC_DRIVER = ./src/driver
 OUT_PBA = ./bin/out_no_gpu
 
 CC = g++
+# Note for Mac: clang should handle -march=native, otherwise use -march=core2 instead.
 CFLAGS =  -DPBA_NO_GPU -fPIC -L/usr/lib64 -L/usr/lib -L$(BIN_DIR) -O2 -Wall -Wno-deprecated -pthread -march=native -mfpmath=sse -fpermissive
 
 

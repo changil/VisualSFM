@@ -24,7 +24,7 @@ siftgpu_enable_sse = 1
 siftgpu_sse_options = -march=native -mfpmath=sse
 #--------------------------------------------------------------------------------------------------
 # openGL context creation.  1 for glut, 0 for xlib
-siftgpu_prefer_glut = 0
+siftgpu_prefer_glut = 1
 #whether remove dependency on DevIL (1 to remove, the output libsiftgpu.so still works for VisualSFM)
 siftgpu_disable_devil = 0
 #------------------------------------------------------------------------------------------------
@@ -57,10 +57,11 @@ SRC_SERVER = src/ServerSiftGPU
 CC = g++
 CFLAGS = -I$(INC_DIR) -fPIC -L/usr/lib64 -L/usr/lib -L./bin -L./lib -Wall -Wno-deprecated -pthread  
 
-#simple hack to repalce the native flat on OSX because gcc version is low
-ifneq ($(DARWIN),) 
-	siftgpu_sse_options = -march=core2 -mfpmath=sse
-endif
+# Note: clang should handle -march=native option
+##simple hack to repalce the native flat on OSX because gcc version is low
+#ifneq ($(DARWIN),) 
+#	siftgpu_sse_options = -march=core2 -mfpmath=sse
+#endif
 
 ifneq ($(siftgpu_enable_sse), 0)
  	CFLAGS += $(siftgpu_sse_options)
