@@ -9,6 +9,8 @@
 (cd SiftGPU && make siftgpu)
 (cd pba && make pba)
 (cd vsfm_$platform && make)
+(cd graclus1.2/metisLib && make)
+(cd graclus1.2/multilevelLib && make)
 (cd cmvs/program/main && make depend && make cmvs genOption)
 (cd pmvs-2/program/main && make depend && make pmvs2)
 

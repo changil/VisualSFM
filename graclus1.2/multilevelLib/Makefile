@@ -19,4 +19,4 @@ clean:
 	rm -f *.o
 
 realclean:
-	rm -f *.o ; rm -f ../libmetis.a
+	rm -f *.o ; rm -f ../libmultilevel.a
