@@ -20,7 +20,10 @@
 /cmvs/program/main/cmvs
 /cmvs/program/main/genOption
 /cmvs/program/main/pmvs2
+/cmvs/program/main/Dependencies
 /pmvs-2/program/main/*.o
 /pmvs-2/program/main/pmvs2
-/vsfm/bin
+/pmvs-2/program/main/Dependencies
+/vsfm_linux/bin/
+/vsfm_osx/bin
 /bin

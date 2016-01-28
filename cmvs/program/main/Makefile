@@ -75,7 +75,7 @@ cmvs.o: cmvs.cc
 ######################################################################
 # general commands
 clean:
-	/bin/rm -f core core.* *.o ${TARGET}
+	rm -f core core.* *.o pmvs2 cmvs genOption ${TARGET}
 
 depend:
 	rm -f Dependencies

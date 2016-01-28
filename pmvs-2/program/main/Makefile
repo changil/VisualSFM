@@ -41,7 +41,7 @@ pmvs2: pmvs2.o detectFeatures.o dog.o harris.o point.o detector.o \
 ######################################################################
 # general commands
 clean:
-	/bin/rm -f core core.* *.o ${TARGET}
+	rm -f core core.* *.o pmvs2 ${TARGET}
 
 depend:
 	rm -f Dependencies
