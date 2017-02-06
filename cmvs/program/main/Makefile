@@ -16,21 +16,21 @@ YOUR_INCLUDE_METIS_PATH = -I../../../graclus1.2/metisLib
 
 # Your LDLIBRARY path (e.g., -L/usr/lib)
 # include /usr/local/lib to override jpeg library in /usr/lib
-YOUR_LDLIB_PATH = -L../../../graclus1.2 -L/usr/local/lib
+YOUR_LDLIB_PATH = -L../../../graclus1.2 -L/usr/local/lib -L/usr/X11/lib
 
 ######################################################################
 CXXFLAGS_PMVS = -O2 -Wall -Wno-deprecated ${YOUR_INCLUDE_PATH}
 
 CXXFLAGS_CMVS = -O2 -Wall -Wno-deprecated -DNUMBITS=64 \
 		${YOUR_INCLUDE_PATH} ${YOUR_INCLUDE_METIS_PATH} \
-		-fopenmp -DNUMBITS=64 ${OPENMP_FLAG}
+		-DNUMBITS=64
 
 
 LDFLAGS_PMVS = ${YOUR_LDLIB_PATH} -lXext -lX11 -ljpeg -lm -lpthread \
 		-llapack -lgsl -lgslcblas
 
 LDFLAGS_CMVS = ${YOUR_LDLIB_PATH} -lXext -lX11 -ljpeg -lm -lpthread \
-		-llapack -fopenmp -lmultilevel -lmetis -lm
+		-llapack -lmultilevel -lmetis -lm
 
 ######################################################################
 BASE_IMAGE = camera.o image.o photo.o photoSetS.o
@@ -81,7 +81,7 @@ depend:
 	rm -f Dependencies
 	for SOURCEFILE in `ls *.cc ../base/*/*.cc ../base/*/*.c ../base/*/*.C ../base/*/*.f`; do \
 	  echo $$SOURCEFILE; \
-	  $(CXX) -MM $(CXXFLAGS) $$SOURCEFILE >> Dependencies; \
+	  $(CXX) -MM $(CXXFLAGS) ${YOUR_INCLUDE_PATH} ${YOUR_INCLUDE_METIS_PATH} $$SOURCEFILE >> Dependencies; \
 	done
 
 -include Dependencies

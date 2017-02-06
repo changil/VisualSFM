@@ -20,7 +20,7 @@ ifneq ($(DARWIN),)
 	ifneq ($(BUILD64),)
 		#where to look for 64-bit libraries (I use homebrew for 64 bit)
 		PKG_CONFIG = /usr/local/bin/pkg-config
-		LIB_LIST = -L/usr/local/lib -L/usr/x11/lib
+		LIB_LIST = -L/usr/local/lib -L/usr/X11/lib
 	else
 		#where to look for 32-bit libraries (I use fink for 32 bit)
 		PKG_CONFIG = /sw/bin/pkg-config
