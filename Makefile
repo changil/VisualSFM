@@ -24,5 +24,5 @@ clean:
 	(cd graclus1.2/multilevelLib && make realclean)
 	(cd cmvs/program/main && make clean)
 	(cd pmvs-2/program/main && make clean)
-	rm -f bin/*
+	rm -f bin/cmvs bin/genOption bin/libpba.so bin/libpba_no_gpu.so bin/libsiftgpu.so bin/pmvs2 bin/VisualSFM
 

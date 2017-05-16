@@ -7,6 +7,12 @@
 ######################################################################
 CXX = g++
 
+ifeq ($(shell uname -s), Darwin)
+	IS_OSX = yes
+else
+	IS_OSX =
+endif
+
 # Your INCLUDE path (e.g., -I/usr/include)
 # include /usr/local/include to override jpeg library headers in /usr/include
 YOUR_INCLUDE_PATH = -I../../../CLAPACK-3.2.1/INCLUDE -I/usr/local/include
@@ -16,7 +22,11 @@ YOUR_INCLUDE_METIS_PATH = -I../../../graclus1.2/metisLib
 
 # Your LDLIBRARY path (e.g., -L/usr/lib)
 # include /usr/local/lib to override jpeg library in /usr/lib
-YOUR_LDLIB_PATH = -L../../../graclus1.2 -L/usr/local/lib -L/usr/X11/lib
+YOUR_LDLIB_PATH = -L../../../graclus1.2 -L/usr/local/lib
+
+ifdef IS_OSX
+	YOUR_LDLIB_PATH += -L/usr/X11/lib
+endif
 
 ######################################################################
 CXXFLAGS_PMVS = -O2 -Wall -Wno-deprecated ${YOUR_INCLUDE_PATH}
@@ -31,6 +41,12 @@ LDFLAGS_PMVS = ${YOUR_LDLIB_PATH} -lXext -lX11 -ljpeg -lm -lpthread \
 
 LDFLAGS_CMVS = ${YOUR_LDLIB_PATH} -lXext -lX11 -ljpeg -lm -lpthread \
 		-llapack -lmultilevel -lmetis -lm
+
+
+ifndef IS_OSX
+	CXXFLAGS_CMVS += -fopenmp ${OPENMP_FLAG}
+	LDFLAGS_CMVS += -fopenmp
+endif
 
 ######################################################################
 BASE_IMAGE = camera.o image.o photo.o photoSetS.o

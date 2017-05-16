@@ -7,12 +7,21 @@
 ######################################################################
 CXX = g++
 
+ifeq ($(shell uname -s), Darwin)
+	IS_OSX = yes
+else
+	IS_OSX =
+endif
 
 # Your INCLUDE path (e.g., -I/usr/include)
 YOURINCLUDEPATH = -I../../../CLAPACK-3.2.1/INCLUDE -I/usr/local/include
 
 # Your LDLIBRARY path (e.g., -L/usr/lib)
-YOURLDLIBPATH = -L/usr/local/lib -L/usr/X11/lib
+YOURLDLIBPATH = -L/usr/local/lib
+
+ifdef IS_OSX
+	YOURLDLIBPATH += -L/usr/X11/lib
+endif
 
 CXXFLAGS = -O2 -Wall -Wno-deprecated ${YOURINCLUDEPATH}
 
